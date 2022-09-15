@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--  Импорт значений из файла theMostExpensiveDevices.properties -->
+    <context:property-placeholder location="classpath:theMostExpensiveDevices.properties"/>
+
+    <!-- Передача аргументов в конструктор при помощи объявления значений и ссылок   -->
+    <bean id="theMostExpensiveMusicPlayer" class="Second.AppleMusicPlayer" scope="prototype">
+        <!--  Передача при помощи объявления значений-->
+        <constructor-arg value="theMostExpensiveMusicPlayerModel" name="model">
+        </constructor-arg>
+
+        <constructor-arg value="128" name="memorySize">
+        </constructor-arg>
+
+        <constructor-arg value="90" name="timeOfWork">
+        </constructor-arg>
+
+        <!--  Передача при помощи ссылки на bean -->
+        <constructor-arg ref="theMostExpensiveSDCard" name="sdcard">
+        </constructor-arg>
+    </bean>
+
+    <!-- Создание объекта(бина) класса SDcard для передачи его по ссылке в бин theMostExpensiveMusicPlayer -->
+    <!-- Здесь передача аргументов идет через setter из файла theMostExpensiveDevices.properties  -->
+    <bean id="theMostExpensiveSDCard" class="Second.SDcard" scope="prototype">
+        <property name="name" value="${theMostExpensiveSDCard.name}">
+        </property>
+
+        <property name="memorySize" value="${theMostExpensiveSDCard.memorySize}">
+        </property>
+    </bean>
+</beans>

@@ -1,20 +1,35 @@
 package TVWireHouse;
 
+import org.hibernate.annotations.Table;
+import javax.persistence.*;
+
+@Entity
+@Table(appliesTo = "TV")
 public class TV {
+    @Column(name = "company", nullable = false)
     private String company;
+
+    @Column(name = "model" , nullable = false)
     private String model;
+
+    @Column(name = "screen_type", nullable = false)
     private String screenType;
+
+    @Column(name = "resolution", nullable = false)
     private String resolution;
 
+    @Column(name = "cost", nullable = false)
     private int cost;
+
+    @Column(name = "diagonal", nullable = false)
     private int diagonal;
-    private int TVid;
 
-    static int id = 0;
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue
+    public int id;
 
-    public TV(){
-
-    }
+    public TV(){}
 
     public TV(String company, String model, String screenType, String resolution, int cost, int diagonal){
         this.company = company;
@@ -23,8 +38,6 @@ public class TV {
         this.resolution = resolution;
         this.cost = cost;
         this.diagonal = diagonal;
-        this.TVid = id;
-        id = id + 1;
     }
 
     public String getCompany() {
@@ -78,21 +91,13 @@ public class TV {
     @Override
     public String toString() {
         return "TVWireHouse.TV{" +
-                "Company='" + company + '\'' +
-                ", Model='" + model + '\'' +
-                ", ScreenType='" + screenType + '\'' +
-                ", Resolution='" + resolution + '\'' +
-                ", Cost=" + cost +
-                ", Diagonal=" + diagonal +
-                ", TVid=" + TVid +
+                "Company='" + this.getCompany() + '\'' +
+                ", Model='" + this.getModel() + '\'' +
+                ", ScreenType='" + this.getScreenType() + '\'' +
+                ", Resolution='" + this.getResolution() + '\'' +
+                ", Cost=" + this.getCost() +
+                ", Diagonal=" + this.getDiagonal() +
+                ", id=" + this.id +
                 '}';
-    }
-
-    public int getTVid() {
-        return TVid;
-    }
-
-    public void setTVid(int TVid) {
-        this.TVid = TVid;
     }
 }

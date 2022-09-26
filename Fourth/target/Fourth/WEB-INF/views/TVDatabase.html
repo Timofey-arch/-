@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>TVDatabase</title>
+    </head>
+    <body>
+        <h1>ТЕЛЯВИЗОРЫ</h1>
+        <div>
+            <button type="button" name="add_tv">ADD TV</button>
+            <button type="button" name="search_tv">SEARCH TV</button>
+            <label for="search_id">
+                <input type="number" id="search_id" style="display: none">
+            </label>
+        </div>
+
+        <form style="display: none">
+            <label for="company">Company</label>
+            <input type="text" id="company">
+
+            <br>
+            <label for="model">Model</label>
+            <input type="text" id="model">
+
+            <br>
+            <label for="screenType">Screen type</label>
+            <input type="text" id="screenType">
+
+            <br>
+            <label for="resolution">Resolution</label>
+            <input type="text" id="resolution">
+
+            <br>
+            <label for="cost">Cost</label>
+            <input type="text" id="cost">
+
+            <br>
+            <label for="diagonal">Diagonal</label>
+            <input type="text" id="diagonal">
+        </form>
+
+        <!-- Здесь будет цикл для отображения элементов базы в таблице -->
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Company</th>
+                <th>Model</th>
+                <th>Screen type</th>
+                <th>Resolution</th>
+                <th>Cost</th>
+                <th>Diagonal</th>
+            </tr>
+
+<!--            <tr th:each="tv: ${tvs}">-->
+<!--                <td th:utext="tv.getId()" th:id="tv.getId()">Id</td>-->
+<!--                <td th:utext="tv.getCompany()">Company</td>-->
+<!--                <td th:utext="tv.getModel()">Model</td>-->
+<!--                <td th:utext="tv.getScreenType()">Screen type</td>-->
+<!--                <td th:utext="tv.getResolution()">Resolution</td>-->
+<!--                <td th:utext="tv.getCost()">Cost</td>-->
+<!--                <td th:utext="tv.getDiagonal()">Diagonal</td>-->
+<!--            </tr>-->
+        </table>
+    </body>
+</html>

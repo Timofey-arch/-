@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>TVDatabase</title>
+        <link rel="stylesheet" href="../../">
     </head>
     <body>
-        <h1>ТЕЛЯВИЗОРЫ</h1>
+        <h1>ТЕЛЯВИЗАРЫ</h1>
         <div>
             <button type="button" name="add_tv">ADD TV</button>
             <button type="button" name="search_tv">SEARCH TV</button>
@@ -51,15 +52,15 @@
                 <th>Diagonal</th>
             </tr>
 
-<!--            <tr th:each="tv: ${tvs}">-->
-<!--                <td th:utext="tv.getId()" th:id="tv.getId()">Id</td>-->
-<!--                <td th:utext="tv.getCompany()">Company</td>-->
-<!--                <td th:utext="tv.getModel()">Model</td>-->
-<!--                <td th:utext="tv.getScreenType()">Screen type</td>-->
-<!--                <td th:utext="tv.getResolution()">Resolution</td>-->
-<!--                <td th:utext="tv.getCost()">Cost</td>-->
-<!--                <td th:utext="tv.getDiagonal()">Diagonal</td>-->
-<!--            </tr>-->
+            <tr th:each="tv: ${tvs}" class="table">
+                <td th:utext="tv.getId()" th:id="tv.getId()">Id</td>
+                <td th:utext="tv.getCompany()">Company</td>
+                <td th:utext="tv.getModel()">Model</td>
+                <td th:utext="tv.getScreenType()">Screen type</td>
+                <td th:utext="tv.getResolution()">Resolution</td>
+                <td th:utext="tv.getCost()">Cost</td>
+                <td th:utext="tv.getDiagonal()">Diagonal</td>
+            </tr>
         </table>
     </body>
 </html>

@@ -3,44 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>TVDatabase</title>
+        <style>
+            .database_table th, tr{
+                border-bottom: 1px black ridge;
+            }
+
+            .database_table td{
+                border: 1px black ridge;
+                user-select: none;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
-        <h1>ТЕЛЯВИЗОРЫ</h1>
-        <div>
-            <button type="button" name="add_tv">ADD TV</button>
-            <button type="button" name="search_tv">SEARCH TV</button>
-            <label for="search_id">
-                <input type="number" id="search_id" style="display: none">
-            </label>
-        </div>
-
-        <form style="display: none">
-            <label for="company">Company</label>
-            <input type="text" id="company">
-
-            <br>
-            <label for="model">Model</label>
-            <input type="text" id="model">
-
-            <br>
-            <label for="screenType">Screen type</label>
-            <input type="text" id="screenType">
-
-            <br>
-            <label for="resolution">Resolution</label>
-            <input type="text" id="resolution">
-
-            <br>
-            <label for="cost">Cost</label>
-            <input type="text" id="cost">
-
-            <br>
-            <label for="diagonal">Diagonal</label>
-            <input type="text" id="diagonal">
-        </form>
-
+        <h1>TVS</h1>
         <!-- Здесь будет цикл для отображения элементов базы в таблице -->
-        <table>
+        <table class="database_table">
             <tr>
                 <th>Id</th>
                 <th>Company</th>
@@ -51,15 +30,15 @@
                 <th>Diagonal</th>
             </tr>
 
-<!--            <tr th:each="tv: ${tvs}">-->
-<!--                <td th:utext="tv.getId()" th:id="tv.getId()">Id</td>-->
-<!--                <td th:utext="tv.getCompany()">Company</td>-->
-<!--                <td th:utext="tv.getModel()">Model</td>-->
-<!--                <td th:utext="tv.getScreenType()">Screen type</td>-->
-<!--                <td th:utext="tv.getResolution()">Resolution</td>-->
-<!--                <td th:utext="tv.getCost()">Cost</td>-->
-<!--                <td th:utext="tv.getDiagonal()">Diagonal</td>-->
-<!--            </tr>-->
+            <tr th:each="tv: ${tvs}">
+                <td th:text="${tv.getId()}">Id</td>
+                <td th:text="${tv.getCompany()}">Company</td>
+                <td th:text="${tv.getModel()}">Model</td>
+                <td th:text="${tv.getScreenType()}">Screen type</td>
+                <td th:text="${tv.getResolution()}">Resolution</td>
+                <td th:text="${tv.getCost()}">Cost</td>
+                <td th:text="${tv.getDiagonal()}">Diagonal</td>
+            </tr>
         </table>
     </body>
 </html>

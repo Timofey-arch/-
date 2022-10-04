@@ -7,7 +7,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class TVDAO {
     private SessionFactory session;
@@ -42,10 +44,17 @@ public class TVDAO {
         }
     }
 
-    public void delete(TV tv){
+    public boolean delete(int id){
         Transaction deleteTransaction = null;
+        TV tv;
         try (Session deleteSession = this.session.openSession()) {
             deleteTransaction = deleteSession.beginTransaction();
+            tv = this.findById(id);
+            if(tv == null){
+                deleteTransaction.commit();
+                deleteSession.close();
+                return false;
+            }
             deleteSession.delete(tv);
             deleteTransaction.commit();
             deleteSession.close();
@@ -55,6 +64,7 @@ public class TVDAO {
                 deleteTransaction.rollback();
             }
         }
+        return true;
     }
 
     public TV findById(int id) {
@@ -70,6 +80,7 @@ public class TVDAO {
             }
             finByIdTransaction.commit();
             findByIdSession.close();
+            return tv;
         } catch (HibernateException hibernateException) {
             hibernateException.printStackTrace();
             if (finByIdTransaction != null) {
@@ -77,11 +88,10 @@ public class TVDAO {
             }
             return null;
         }
-        return tv;
     }
 
-    public LinkedList<TV> allTVs(){
-        return (LinkedList<TV>) this.session.openSession().createQuery("From TV ").list();
+    public List<TV> allTVs(){
+        return this.session.openSession().createQuery("From TV ").list();
     }
 
     public SessionFactory getSession() {

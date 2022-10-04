@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+  <html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <meta charset="UTF-8">
+      <title>TVDatabase</title>
+      <style>
+          .database_table th, tr{
+              border-bottom: 1px black ridge;
+          }
+
+          .database_table td{
+              border: 1px black ridge;
+              user-select: none;
+              padding: 0;
+              margin: 0;
+          }
+      </style>
+  </head>
+  <body>
+    <h1>UPDATE TV</h1>
+    <h3>Input data of object to update it</h3>
+
+    <form th:action="@{/tvs/edit}" th:method="PUT" th:object="${tv}">
+        <table th:class="database_table">
+            <tr>
+                <td><label for="id">Id</label></td>
+                <td>
+                    <input type="number" id="id" th:field="*{id}"
+                       th:class="${#fields.hasErrors('id')}? fieldError" />
+                    <div th:text="${message}">Error</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="company">Company</label></td>
+                <td>
+                    <input type="text" id="company" th:field="*{company}"/>
+                    <div th:if="${#fields.hasErrors('company')}" th:errors="*{company}">Error</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="model">Model</label></td>
+                <td>
+                    <input type="text" id="model" th:field="*{model}"/>
+                    <div th:if="${#fields.hasErrors('model')}" th:errors="*{model}">Error</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="screenType">Screen type</label></td>
+                <td>
+                    <input type="text" id="screenType" th:field="*{screenType}"/>
+                    <div th:if="${#fields.hasErrors('screenType')}" th:errors="*{screenType}">Error</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="resolution">Resolution</label></td>
+                <td>
+                    <input type="text" id="resolution" th:field="*{resolution}"/>
+                    <div th:if="${#fields.hasErrors('resolution')}" th:errors="*{resolution}">Error</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="cost">Cost</label></td>
+                <td>
+                    <input type="number" id="cost" th:field="*{cost}"/>
+                    <div th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}">Error</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="diagonal">Diagonal</label></td>
+                <td>
+                    <input type="number" id="diagonal" th:field="*{diagonal}"/>
+                    <div th:if="${#fields.hasErrors('diagonal')}" th:errors="*{diagonal}">Error</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+  </body>
+</html>

@@ -4,7 +4,6 @@ import TVWireHouse.Entities.TV;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-
 import javax.annotation.PostConstruct;
 
 public class HibernateSession {
@@ -19,7 +18,7 @@ public class HibernateSession {
                 .setProperty("show_sql", "false")
                 .setProperty("hibernate.format_sql", "false")
                 .setProperty("hibernate.use_sql_comments", "false")
-                .setProperty("connection.driver_class", "org.postgresql.Driver")
+                .setProperty("hibernate.connection.driver_class", "org.postgresql.Driver")
                 .setProperty("hibernate.hbm2ddl.auto", "create")
                 .setProperty("hibernate.hbm2ddl.auto", "update")
                 .setProperty("hibernate.generate_statistics", "false");

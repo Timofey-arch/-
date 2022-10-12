@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>AddTv</title>
+  </head>
+  <body>
+    <h1>ADD NEW TV</h1>
+    <h3>Input data for new tv</h3>
+
+    <form th:object="${tv}" th:action="@{/admin/tvs/new}" th:method="POST">
+      <table>
+        <tr>
+          <td>
+            <label for="company">Company</label>
+          </td>
+          <td>
+            <input type="text" id="company" th:field="*{company}" />
+            <div th:if="${#fields.hasErrors('company')}" th:errors="*{company}">Error</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="model">Model</label>
+          </td>
+          <td>
+            <input type="text" id="model" th:field="${tv.model}"/>
+            <div th:if="${#fields.hasErrors('model')}" th:errors="*{model}">Error</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="screenType">Screen type</label>
+          </td>
+          <td>
+            <input type="text" id="screenType" th:field="${tv.screenType}"/>
+            <div th:if="${#fields.hasErrors('screenType')}" th:errors="*{screenType}">Error</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="resolution">Resolution</label>
+          </td>
+          <td>
+            <input type="text" id="resolution" th:field="${tv.resolution}"/>
+            <div th:if="${#fields.hasErrors('resolution')}" th:errors="*{resolution}">Error</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="cost">Cost</label>
+          </td>
+          <td>
+            <input type="number" id="cost" th:field="${tv.cost}"/>
+            <div th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}">Error</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="diagonal">Diagonal</label>
+          </td>
+          <td>
+            <input type="number" id="diagonal" th:field="${tv.diagonal}"/>
+            <div th:if="${#fields.hasErrors('diagonal')}" th:errors="*{diagonal}">Error</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><input type="submit" value="Submit"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

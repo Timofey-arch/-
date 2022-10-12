@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+    <body>
+        <h1>Admin Page</h1>
+        <ul>
+            <li>
+                <a th:href="@{/admin/tvs}"> Show tv database</a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/tvs/new}"> Add tv</a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/tvs/delete}"> Delete tv</a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/tvs/edit}"> Update tv</a>
+            </li>
+
+            <li>
+                <a th:href="@{/admin/tvs/find}"> Find by id</a>
+            </li>
+        </ul>
+        <a th:href="@{/logout}">Log out</a>
+    </body>
+</html>

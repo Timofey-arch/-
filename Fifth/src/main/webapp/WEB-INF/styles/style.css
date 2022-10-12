@@ -1,0 +1,12 @@
+.database_table th, tr{
+    border-bottom: 1px black ridge;
+}
+
+.database_table td{
+    border: 1px black ridge;
+    user-select: none;
+}
+
+.error{
+    color: red;
+}

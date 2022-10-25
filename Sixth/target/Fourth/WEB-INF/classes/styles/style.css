@@ -1,0 +1,7 @@
+.table{
+    border: 3px black ridge;
+}
+
+.table > tr{
+    color: #99cc99;
+}

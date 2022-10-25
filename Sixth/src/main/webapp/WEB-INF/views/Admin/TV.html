@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TV</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td><h4>Id</h4></td>
+      <td><h4 th:text="${tv.getId()}">Id</h4></td>
+    </tr>
+
+    <tr>
+      <td>Company</td>
+      <td><h4 th:text="${tv.getCompany()}">Company</h4></td>
+    </tr>
+
+    <tr>
+      <td>Model</td>
+      <td><h4 th:text="${tv.getModel()}">Model</h4></td>
+    </tr>
+
+    <tr>
+      <td>Screen type</td>
+      <td><h4 th:text="${tv.getScreenType()}">Screen type</h4></td>
+    </tr>
+
+    <tr>
+      <td>Resolution</td>
+      <td><h4 th:text="${tv.getResolution()}">Resolution</h4></td>
+    </tr>
+
+    <tr>
+      <td>Cost</td>
+      <td><h4 th:text="${tv.getCost()}">Cost</h4></td>
+    </tr>
+
+    <tr>
+      <td>Diagonal</td>
+      <td><h4 th:text="${tv.getDiagonal()}">Diagonal</h4></td>
+    </tr>
+
+    <tr>
+      <td><a th:href="@{/admin}">Back to menu</a></td>
+    </tr>
+  </table>
+</body>
+</html>

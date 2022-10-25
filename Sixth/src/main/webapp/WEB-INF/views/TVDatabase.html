@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>TVDatabase</title>
+    </head>
+    <body>
+        <h1>TVS</h1>
+        <!-- Здесь будет цикл для отображения элементов базы в таблице -->
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Company</th>
+                <th>Model</th>
+                <th>Screen type</th>
+                <th>Resolution</th>
+                <th>Cost</th>
+                <th>Diagonal</th>
+            </tr>
+
+            <tr th:each="tv: ${tvs}">
+                <td th:text="${tv.getId()}">Id</td>
+                <td th:text="${tv.getCompany()}">Company</td>
+                <td th:text="${tv.getModel()}">Model</td>
+                <td th:text="${tv.getScreenType()}">Screen type</td>
+                <td th:text="${tv.getResolution()}">Resolution</td>
+                <td th:text="${tv.getCost()}">Cost</td>
+                <td th:text="${tv.getDiagonal()}">Diagonal</td>
+            </tr>
+        </table>
+    </body>
+</html>

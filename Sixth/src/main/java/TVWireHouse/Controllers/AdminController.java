@@ -103,13 +103,13 @@ public class AdminController {
         return "Admin/TV";
     }
 
-    @ResponseBody
+
+    // REST API part
     @GetMapping(value = "/tvs", headers = {"Accept=application/json"})
     public ResponseEntity<List<TV>> allTVS(){
         return new ResponseEntity<>(tvdao.allTVs(), HttpStatus.OK);
     }
 
-    @ResponseBody
     @GetMapping(value = "/tvs/find/{id}", headers = {"Accept=application/json"})
     public ResponseEntity<TV> find(@PathVariable("id") int id){
         TV tv = tvdao.findById(id);
@@ -121,14 +121,12 @@ public class AdminController {
         return new ResponseEntity<>(tv, HttpStatus.OK);
     }
 
-    @ResponseBody
     @PostMapping(value = "/tvs/new", headers = {"Accept=application/json"})
     public ResponseEntity<TV> add(@RequestBody TV tv){
         tvdao.add(tv);
         return new ResponseEntity<>(tv, HttpStatus.CREATED);
     }
 
-    @ResponseBody
     @DeleteMapping(value = "/tvs/delete/{id}", headers = {"Accept=application/json"})
     public ResponseEntity<TV> delete(@PathVariable("id") int id){
         TV deletedTV = tvdao.findById(id);
@@ -141,9 +139,12 @@ public class AdminController {
         return new ResponseEntity<>(deletedTV, HttpStatus.OK);
     }
 
-    @ResponseBody
-    @PutMapping(value = "/tvs/edit", headers = {"Accept=application/json"})
-    public ResponseEntity<TV> edit(@RequestBody TV tv){
+    @PutMapping(value = "/tvs/edit/{id}",  headers = {"Accept=application/json"})
+    public ResponseEntity<TV> edit(@PathVariable int id, @RequestBody TV tv){
+        if(tvdao.findById(id) == null){
+            return new ResponseEntity<>(tv, HttpStatus.NOT_FOUND);
+        }
+
         tvdao.update(tv);
         return new ResponseEntity<>(tvdao.findById(tv.getId()), HttpStatus.OK);
     }

@@ -19,7 +19,9 @@ public class TVDAO {
         Transaction addTransaction = null;
         try (Session addSession = this.session.openSession()) {
             addTransaction = addSession.beginTransaction();
+
             addSession.save(tv);
+
             addTransaction.commit();
             addSession.close();
         } catch (HibernateException hibernateException) {
@@ -34,7 +36,9 @@ public class TVDAO {
         Transaction updateTransaction = null;
         try (Session updateSession = this.session.openSession()) {
             updateTransaction = updateSession.beginTransaction();
+
             updateSession.update(tv);
+
             updateTransaction.commit();
             updateSession.close();
         } catch (HibernateException hibernateException) {
@@ -50,6 +54,7 @@ public class TVDAO {
         TV tv;
         try (Session deleteSession = this.session.openSession()) {
             deleteTransaction = deleteSession.beginTransaction();
+
             tv = this.findById(id);
             if(tv == null){
                 deleteTransaction.commit();
@@ -57,6 +62,7 @@ public class TVDAO {
                 return false;
             }
             deleteSession.delete(tv);
+
             deleteTransaction.commit();
             deleteSession.close();
         } catch (HibernateException hibernateException) {
@@ -74,11 +80,13 @@ public class TVDAO {
         try (Session findByIdSession = this.session.openSession()) {
             finByIdTransaction = findByIdSession.beginTransaction();
             tv = findByIdSession.get(TV.class, id);
+
             if(tv == null){
                 finByIdTransaction.commit();
                 findByIdSession.close();
                 return null;
             }
+
             finByIdTransaction.commit();
             findByIdSession.close();
             return tv;

@@ -22,7 +22,7 @@ insert into tv values(1000, 'Samsung', 50, 25, 'RF-1050', '1920*1080', 'OLED') ,
 (1001, 'Apple', 52, 40, 'Rg-10', '1920*100', 'ips'),
 (1002, 'HP', 57, 45, 'ZH-2150', '1920*1080', 'TN+film');
 
--- ADMIN(Username - Admin, Password - 1234)
+-- ADMIN(Username - Admin, Password - 12345)
 -- USER(Username - User, Password - 12345)
 insert into users values (1, 'User', '$2a$12$3sxuvDMNcG7IXk3yrej6ketSfqV8orX5iR.OZ0pDpJqbh2cOLaJFW', 'ROLE_USER'),
                          (2, 'Admin', '$2a$12$Nj.Xy4GzFN7pfZbmZ/jf.e4AE7NGNgxRM/c7h2PeXYulxOHSlQFgG', 'ROLE_ADMIN');

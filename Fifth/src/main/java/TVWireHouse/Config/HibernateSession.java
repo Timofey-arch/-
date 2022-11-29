@@ -16,6 +16,7 @@ public class HibernateSession {
                 .setProperty("hibernate.dialect", "org.hibernate.dialect.PostgresPlusDialect")
                 .setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/postgres")
                 .setProperty("hibernate.connection.username", "postgres")
+                .setProperty("hibernate.connection.password", "postgres")
                 .setProperty("show_sql", "false")
                 .setProperty("hibernate.format_sql", "false")
                 .setProperty("hibernate.use_sql_comments", "false")

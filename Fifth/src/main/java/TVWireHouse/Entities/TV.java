@@ -1,13 +1,17 @@
 package TVWireHouse.Entities;
 
-import org.hibernate.annotations.Table;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(appliesTo = "TV")
+@Table(name = "TV")
 public class TV {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
+
     @NotEmpty(message = "Company can not be null or empty")
     @Column(name = "company", nullable = false)
     private String company;
@@ -31,12 +35,6 @@ public class TV {
     @Column(name = "diagonal", nullable = false)
     @Min(value = 10, message = "Diagonal should be from '10")
     private int diagonal;
-
-    @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue
-    @Min(value = 0)
-    public int id;
 
     public TV(){}
 

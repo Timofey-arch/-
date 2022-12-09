@@ -44,7 +44,7 @@ public class UserController {
             return "User/FindById";
         }
 
-        TV foundTV = tvdao.findById(tv.id);
+        TV foundTV = tvdao.findById(tv.getId());
         model.addAttribute("tv", foundTV);
         return "User/TV";
     }

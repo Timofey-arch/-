@@ -70,7 +70,7 @@ public class AdminController {
             model.addAttribute("message", message);
             return "Admin/DeleteTV";
         }
-        tvdao.delete(tv.id);
+        tvdao.delete(tv);
         return "redirect:/admin";
     }
 
@@ -95,7 +95,7 @@ public class AdminController {
             model.addAttribute("message", message);
             return "Admin/FindById";
         }
-        TV foundTV = tvdao.findById(tv.id);
+        TV foundTV = tvdao.findById(tv.getId());
         model.addAttribute("tv", foundTV);
         return "Admin/TV";
     }

@@ -2,6 +2,7 @@ package TVWireHouse.Entities;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
@@ -11,6 +12,11 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
+
     @Column(name = "username", nullable = false)
     @NotEmpty(message = "Username field shouldn`t be empty")
     private String username;
@@ -21,11 +27,6 @@ public class User implements UserDetails {
 
     @Column(name = "role")
     private String role;
-
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false)
-    private int id;
 
     public User(){
 
